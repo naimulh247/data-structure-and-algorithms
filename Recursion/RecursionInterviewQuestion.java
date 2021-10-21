@@ -6,7 +6,10 @@ public class RecursionInterviewQuestion {
         System.out.println("Sum of Digits: " + sumOfDigits(111));
 
         // Question 2 answer test
-        System.out.println("Power: " + power(2, -2));
+        System.out.println("Power: " + power(2, 20));
+        
+        // Question 3 answer test
+        System.out.println("GCD: " + gcd(408, 108));
     }
 
     /** Question 1
@@ -47,4 +50,36 @@ public class RecursionInterviewQuestion {
         return base * power(base, exp - 1);
 
     }
+
+    /*Question 3
+    * How to find the GCD ( Greatest Common Divisor ) of two numbers using recursion?
+    * GCD is the largest positive integer that divides both numbers without a remainder
+    * gcd(8,12) is 4
+    * */
+
+    /*For this question we are going to use Euclidean Algorithm
+    * Euclodean Algorithm Does the following for gcd(48,18):
+    * Step 1: 48/18 = 2 remainder 12
+    * Step 2: 18/12 = 1 remainder 6
+    * Step 3: 12/6 = 2 remainder 0
+    *
+    * Such that: gcd(a, 0) = a and gcd(a, b) = gcd( b, a mod b )
+    * */
+
+    public static int gcd(int a, int b){
+        // unintentional cases
+        if (a < 0 || b < 0){
+            return -1;
+        }
+        // base case
+        if( b == 0){
+            return a;
+        }
+
+        // gcd(a, b) = gcd( b, a mod b )
+        return gcd(b, a % b);
+
+        
+    }
+
 }
