@@ -10,6 +10,9 @@ public class RecursionInterviewQuestion {
         
         // Question 3 answer test
         System.out.println("GCD: " + gcd(408, 108));
+
+        // Question 4 answer test
+        System.out.println("Decimal To Binary: " + decimalToBinary(1000));
     }
 
     /** Question 1
@@ -78,8 +81,19 @@ public class RecursionInterviewQuestion {
 
         // gcd(a, b) = gcd( b, a mod b )
         return gcd(b, a % b);
-
-        
     }
 
+
+    /*Question 4
+    * How to convert a number from decimal to binary using recursion
+    * f(n) = n%2 + 10*f(n/2)
+    * */
+
+    public static int decimalToBinary(int n){
+        //base case
+        if( n == 0 ){
+            return 0;
+        }
+        return n % 2 + 10 * decimalToBinary(n/2);
+    }
 }
