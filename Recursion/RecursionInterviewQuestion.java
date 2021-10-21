@@ -1,8 +1,12 @@
 public class RecursionInterviewQuestion {
 
     public static void main(String[] args) {
-        // Question 1 answer
-        System.out.println(sumOfDigits(111));
+        // Question 1 answer test
+
+        System.out.println("Sum of Digits: " + sumOfDigits(111));
+
+        // Question 2 answer test
+        System.out.println("Power: " + power(2, -2));
     }
 
     /** Question 1
@@ -25,8 +29,22 @@ public class RecursionInterviewQuestion {
 
 
     /*Question 2
-    * How to calculate power of a number using recursion?
-    *
-    *
-    * */
+     * How to calculate power of a number using recursion?
+     * if given 2^4, then it is the same as 2x2x2x2 = 16
+     */
+
+    public static int power(int base, int exp){
+        // unintentional case
+        if ( exp < 0 || base < 0){
+            return -1;
+        }
+        // base case
+        if ( exp == 0){
+            return 1;
+        }
+
+        // x^n = x*x^(n-1)
+        return base * power(base, exp - 1);
+
+    }
 }
